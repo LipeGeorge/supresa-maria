@@ -6,14 +6,57 @@
 
 body {
     background: #fbc2eb;
-
     font-family: 'Quicksand', sans-serif;
-    height: 100vh;
+    
+    /* MUDANÇA 1: Troque 'height' por 'min-height' */
+    /* Isso permite que a tela cresça se o texto for grande, evitando cortar o topo */
+    min-height: 100vh; 
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; 
-    position: relative; 
+    
+    /* MUDANÇA 2: Libere a rolagem vertical */
+    overflow-y: auto; 
+    overflow-x: hidden; /* Mantém a horizontal travada */
+    
+    /* MUDANÇA 3: Adicione um respiro nas bordas para o celular */
+    padding: 20px; 
+    position: relative;
+}
+
+/* --- CORREÇÃO DO CARTÃO --- */
+.card {
+    background: rgba(255, 255, 255, 0.95); /* Aumentei um pouco a opacidade para leitura */
+    
+    /* MUDANÇA 4: Reduza o padding para sobrar mais espaço pro texto no celular */
+    padding: 30px 20px; 
+    
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+    /* Largura responsiva */
+    width: 100%; 
+    max-width: 400px; /* Trava no tamanho máximo bonito */
+    
+    margin: auto; /* Garante centralização extra */
+    text-align: center;
+}
+
+/* --- CORREÇÃO DA FOTO E BORDA --- */
+.photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    
+    /* MUDANÇA 5: A borda rosa que você queria (igual à foto de exemplo) */
+    border: 6px solid #ff8fa3; /* Um rosa mais vivo e bonito */
+    
+    margin-bottom: 20px;
+    display: block; /* Garante que a imagem se comporte como bloco */
+    margin-left: auto;  /* Centraliza a imagem no bloco */
+    margin-right: auto; /* Centraliza a imagem no bloco */
 }
 
 .circles {
@@ -140,12 +183,18 @@ body {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.9); 
-    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 20px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    max-width: 90%; 
-    width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+    width: 100%;
+    max-width: 400px; /* Largura máxima para não ficar gigante no PC */
+    
+    /* A MÁGICA: Isso centraliza vertical e horizontalmente */
+    margin: auto; 
+    
+    text-align: center;
 }
 
 .photo {
